@@ -9,21 +9,59 @@
 </head>
 <body>
 
-  <!-- Based on an example from http://schema.org/Book -->
+  <!--
+    Below is a semantically marked-up HTML fragment
+    that tells machine clients "this is a book".
+
+    To demonstrate the ease of creating HTML5 microdata,
+    this example has been taken directly from http://schema.org/Book.
+  -->
   <div id="book" itemscope itemtype="http://schema.org/Book">
+
     <span itemprop="name">The Catcher in the Rye</span> -
-     <link itemprop="bookFormat" href="http://schema.org/Paperback">Mass Market Paperback
+    <link itemprop="bookFormat" href="http://schema.org/Paperback">Mass Market Paperback
     by <a itemprop="author" href="#salinger">J.D. Salinger</a>
+
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
       <span itemprop="ratingValue">4</span> stars -
       <span itemprop="reviewCount">3077</span> reviews
     </div>
+
     <div itemprop="offers priceOffers" itemscope itemtype="http://schema.org/Offer http://schema.org/Intangible">
       Price: <span itemprop="price">$6.99</span>
       <meta itemprop="priceCurrency" content="USD" />
       <link itemprop="availability" href="http://schema.org/InStock">In Stock
     </div>
+
+    <!--
+      The iframe below will generate the distributed affordance,
+      based on the semantic markup above and the user's preferences.
+      For now, those preferences are a list of service descriptions.
+
+      It's crucial to note that the distributed affordance provider
+      (in this case vyperlinks.org, but ultimately the browser or an extension)
+      has never heard of the book "The Catcher in the Rye" or this page.
+      It only knows that it has services that operate on books.
+      These descriptions are then "instantiated" to make the links
+      directly point to a page that concerns the book.
+      For instance, the "Buy on Amazon" link goes directly to the book page,
+      instead of simply to the Amazon home page or search page.
+    -->
     <iframe src="http://vyperlinks.org/actions?for=http%3A%2F%2Frubenverborgh.github.com%2FDistributed-Affordance-Examples%2F2013%2Fbasic%2Fbook.html%23book"></iframe>
+
+    <!--
+      The current solution is "affordance as a service",
+      because it requires a centralized provider (vyperlinks.org)
+      to generate the distributed affordance.
+      However, in the future, we want to decentralize this
+      and let the browser itself create the affordance.
+      Instead of the iframe, we would then have something similar to:
+
+        <affordance for="book" />
+
+      The browser would then similarly create affordance for the element #book.
+    -->
+
   </div>
 </body>
 </html>

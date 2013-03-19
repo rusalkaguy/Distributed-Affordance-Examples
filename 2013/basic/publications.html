@@ -17,12 +17,39 @@
     Enjoy reading them and please contact me if you have any questions.
   </p>
 
+  <!--
+    Every publication below has been marked up with HTML5 microdata.
+    Note how each publication is identified with a unique id attribute.
+
+    This allows us to say:
+    "generate the affordance for resource #verborgh_web_2013 on this page".
+    Thereby, every item in the list gets unique distributed affordance links.
+
+    Apart from demonstrating the possibility of multiple affordance blocks,
+    this page also shows they can be generated with considerable speed.
+  -->
+
   <h2 id="2013">Published in 2013</h2>
   <ul>
+    <!--
+      A first publication item.
+    -->
     <li id=verborgh_web_2013 itemscope itemtype=http://schema.org/ScholarlyArticle>
       <span class=title itemprop=name>The Rise of the Web for Agents</span>
       <span itemprop=author>Ruben Verborgh</span>, <span itemprop=author>Erik Mannens</span>, and <span itemprop=author>Rik Van de Walle</span>&nbsp;<i class=year>(2013)</i>
+
+      <!--
+        Affordance for the first publication item.
+      -->
       <iframe src="http://vyperlinks.org/actions?for=http%3A%2F%2Frubenverborgh.github.com%2FDistributed-Affordance-Examples%2F2013%2Fbasic%2Fpublications.html%23verborgh_web_2013"></iframe>
+
+      <!--
+        In time, the above iframe might become more simple, such as:
+
+          <affordance for="verborgh_web_2013" />
+
+        However, this requires the browser (or a shim) to understand this syntax.
+      -->
     </li>
 
     <li id="vanhooland_jasist_2013" itemscope itemtype="http://schema.org/ScholarlyArticle">
