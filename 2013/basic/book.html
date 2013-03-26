@@ -4,7 +4,6 @@
   <title>The Catcher in the Rye</title>
   <style>
     body { width: 600px; margin: 2em auto; }
-    iframe { border: 0; width: 100%; height: 1.5em; }
   </style>
 </head>
 <body>
@@ -34,12 +33,10 @@
     </div>
 
     <!--
-      The iframe below will generate the distributed affordance,
-      based on the semantic markup above and the user's preferences.
-      For now, those preferences are a list of service descriptions.
+      The element below instructs the browser to generate distributed affordance
+      for the element with ID "book".
 
-      It's crucial to note that the distributed affordance provider
-      (in this case vyperlinks.org, but ultimately the browser or an extension)
+      It's crucial to note that the distributed affordance generator
       has never heard of the book "The Catcher in the Rye" or this page.
       It only knows that it has services that operate on books.
       These descriptions are then "instantiated" to make the links
@@ -47,21 +44,12 @@
       For instance, the "Buy on Amazon" link goes directly to the book page,
       instead of simply to the Amazon home page or search page.
     -->
-    <iframe src="http://vyperlinks.org/actions?for=http%3A%2F%2Frubenverborgh.github.com%2FDistributed-Affordance-Examples%2F2013%2Fbasic%2Fbook.html%23book"></iframe>
-
-    <!--
-      The current solution is "affordance as a service",
-      because it requires a centralized provider (vyperlinks.org)
-      to generate the distributed affordance.
-      However, in the future, we want to decentralize this
-      and let the browser itself create the affordance.
-      Instead of the iframe, we would then have something similar to:
-
-        <affordance for="book" />
-
-      The browser would then similarly create affordance for the element #book.
-    -->
-
+    <div class="affordances" data-for="book">
+      <em>the browser will insert affordances here</em>
+    </div>
   </div>
+
+  <!-- This shim helps browsers that don't natively support distributed affordance. -->
+  <script src="http://shim.distributedaffordance.org/"></script>
 </body>
 </html>
